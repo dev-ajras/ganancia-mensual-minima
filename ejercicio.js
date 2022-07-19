@@ -4,11 +4,10 @@
     if(interes <=0){
         return 'si no hay interes no hay necesidad de calcular las ganancias'
     }
-
+    const cuotaMensual = (prestamoBruto + (prestamoBruto/100)*interes)/meses
     let retornoFinal = (prestamoBruto * retornoDeseado)/100
     while (balance < retornoFinal) {
-        gananciaRequerida += .1
-        const cuotaMensual = (prestamoBruto + (prestamoBruto/100)*interes)/meses
+    gananciaRequerida += .1
     let totalActual = prestamoBruto
     for(let i = 0; i < meses; i++){
          totalActual = totalActual - cuotaMensual
@@ -17,8 +16,7 @@
         balance = sumaIntereses
     }
     }
-    const porcentualGananciasEsperadas = gananciaRequerida.toFixed(2)
-    return porcentualGananciasEsperadas
+    return gananciaRequerida.toFixed(2)
   }
       //ejemplo de como ejecutar el script
-      //console.log(porcentual(100000, 30, 12, 0))
+      console.log(porcentual(100000, 30, 12, 0))
